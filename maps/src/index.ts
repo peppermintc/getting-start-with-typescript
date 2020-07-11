@@ -1,11 +1,14 @@
 import { User } from "./User";
-// import { Company } from "./Company";
+import { Company } from "./Company";
 import { CustomMap } from "./CustomMap";
+// import { company } from "faker";
 
 const user = new User();
+const company = new Company();
 const customMap = new CustomMap("map");
 
-customMap.addUserMarker(user);
+customMap.addMarker(user);
+customMap.addMarker(company);
 
 // // let __lat: number = 10;
 // // let __lng: number = 10;
