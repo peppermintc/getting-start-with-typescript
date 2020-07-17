@@ -1,3 +1,3 @@
-import { User } from "./models/User";
+import axios from "axios";
 
-User.fetch(1);
+axios.get("http://localhost:3000/users/1");
