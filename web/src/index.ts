@@ -1,14 +1,9 @@
 import { User } from "./models/User";
 
-const user = new User({ name: "new record", age: 0 });
+const user = new User({ id: 1, name: "newer name", age: 33 });
 
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
+user.on("save", () => {
+  console.log(user);
+});
 
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
-}
-
-const person = new Person("firstname", "lastname");
-console.log(person.fullName);
+user.save();
