@@ -1,27 +1,27 @@
+import { User } from "../models/User";
+
 export class UserForm {
-  constructor(public parent: Element) {}
+  constructor(public parent: Element, public model: User) {}
 
   eventsMap(): { [key: string]: () => void } {
     return {
-      "click:button": this.onButtonClick,
-      "mouseenter:h1": this.onMouseEnter,
+      "click:.set-age": this.onSetAgeClick,
     };
   }
 
-  onMouseEnter(): void {
-    console.log("Mouse entered on h1");
-  }
-
-  onButtonClick(): void {
-    console.log("Hi there");
+  onSetAgeClick(): void {
+    console.log("button was clicked");
   }
 
   template(): string {
     return `
         <div>
             <h1>User Form</h1>
+            <div>User Name: ${this.model.get("name")}</div>
+            <div>User Age: ${this.model.get("age")}</div>
             <input />
             <button>Click Me</button>
+            <button class="set-age">Set Random Age</button>
         </div>
     `;
   }
